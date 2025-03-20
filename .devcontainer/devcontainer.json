@@ -1,0 +1,36 @@
+{
+  "name": "Neural ODE Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  // "workspaceMount": "source=/torchdiffeq, on=/workspace",
+  "workspaceMount": "source=/home/exouser/torchdiffeq,target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+
+  // 容器启动后, VS Code默认使用的用户
+  "remoteUser": "vscode",
+
+  // 在容器里自动安装 VS Code 扩展
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "github.copilot"
+      ]
+    }
+  },
+  // "customizations/vscode/extensions": [
+  //   "ms-python.python",
+  //   "ms-toolsai.jupyter",
+  //   "github.copilot"
+  // ],
+
+  // 如果需要GPU(且已配置好nvidia容器工具),可以加
+  // "runArgs": ["--gpus", "all"],
+
+  // 容器创建好后执行一些命令,可选
+  "postCreateCommand": "pip list"
+}
+  
